@@ -1,0 +1,149 @@
+@use "./mixien" as *;
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap");
+//====================== Import-->
+
+//====================== Variables -->
+$main-color: #031930;
+$bg-color: #fff;
+$light-color: #0ea34c;
+$dir: rtl;
+//====================== Variables -->
+
+//====================== Rest-Design -->
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Tajawal", sans-serif;
+  text-decoration: none;
+  transition: all 0.5s ease-out;
+}
+body {
+  background-color: var(--bg-color, $bg-color);
+}
+img {
+  -webkit-user-drag: none;
+  cursor: pointer;
+}
+button {
+  outline: 0;
+  border: 0;
+}
+h1 {
+  font-size: 2.5rem;
+  color: var(--main-color, $main-color);
+  font-weight: 700;
+  @include media(em) {
+    font-size: 1.4rem;
+  }
+}
+h2 {
+  font-size: 2.2rem;
+  color: var(--main-color, $main-color);
+  font-weight: 700;
+  @include media(em) {
+    font-size: 1.3rem;
+  }
+}
+h3 {
+  font-size: 1.5rem;
+  color: var(--main-color, $main-color);
+  font-weight: 700;
+  @include media(em) {
+    font-size: 1.1rem;
+  }
+}
+p {
+  color: var(--main-color, $main-color);
+  font-size: 1.2rem;
+  @include media(em) {
+    font-size: 0.9rem;
+  }
+}
+.lister {
+  @include flex(center, space-evenly, row, 0);
+  gap: 30px;
+  .lan-controlls {
+    a {
+      padding: 5px 10px;
+      cursor: pointer;
+      background-color: var(--main-color, $main-color);
+      outline: 0;
+      border: 0;
+      color: var(--light-color, $light-color);
+      font-weight: 600;
+      border-radius: 5px;
+      user-select: none;
+    }
+  }
+}
+//====================== Rest-Design -->
+
+//====================== Container-->
+.container {
+  margin: 0 auto;
+}
+
+@include media(em) {
+  .container {
+    width: 100%;
+    padding: 0 30px;
+  }
+}
+
+@include media(sm) {
+  .container {
+    width: 750px;
+    padding: 0 30px;
+  }
+}
+
+@include media(md) {
+  .container {
+    width: 970px;
+  }
+}
+
+@include media(xl) {
+  .container {
+    width: 1170px;
+  }
+}
+//====================== Container-->
+.arrow {
+  background-color: var(--main-color, $main-color);
+  position: fixed;
+  bottom: 3%;
+  left: 3%;
+  z-index: 1000;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  @include flex(center, center, column, 0);
+  img {
+    animation: act-arrow 1s ease-out infinite;
+    position: absolute;
+  }
+  :nth-child(2) {
+    animation-delay: 0.4s;
+  }
+  :nth-child(3) {
+    animation-delay: 0.8s;
+  }
+  @include media(em) {
+    bottom: 7%;
+  }
+}
+@keyframes act-arrow {
+  from {
+    transform: translateY(30px) scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px) scale(1);
+    opacity: 1;
+  }
+}
+
